@@ -33,4 +33,6 @@ interface LoansPresenter {
     fun setListLoansToFragment()
 
     fun getListLoansFromData(): List<Loan>
+
+    fun onItemRequestUpdated( name: String, famaly: String, telephone: String, amount: String, percent: String, period: String )
 }

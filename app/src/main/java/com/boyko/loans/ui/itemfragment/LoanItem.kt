@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.boyko.loans.R
 import com.boyko.loans.data.models.Loan
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_create_new_loan.*
 import kotlinx.android.synthetic.main.fragment_loan_item.*
 import kotlinx.android.synthetic.main.fragment_loan_item.tv_item_amount
 import kotlinx.android.synthetic.main.fragment_loan_item.tv_item_id
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_loan_item.tv_item_period
 import kotlinx.android.synthetic.main.fragment_loan_item.tv_item_phone
 import kotlinx.android.synthetic.main.fragment_loan_item.tv_item_state
 import kotlinx.android.synthetic.main.fragment_loan_item.tv_item_state1
+import kotlinx.android.synthetic.main.registr_fragment.*
 
 private const val ARG_PARAM1 = "param1"
 private const val APPROVED = "APPROVED"

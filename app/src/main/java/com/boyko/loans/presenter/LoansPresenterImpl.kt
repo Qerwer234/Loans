@@ -1,6 +1,7 @@
 package com.boyko.loans.presenter
 
 import android.content.Context
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -28,6 +29,8 @@ import kotlinx.android.synthetic.main.loans_fragment.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.concurrent.TimeUnit
+import java.util.regex.Pattern
+import java.util.regex.Pattern.compile
 
 
 class LoansPresenterImpl(private val loginRepository: LoginRepository, private val dataRepository: DataRepository) :
@@ -198,5 +201,59 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
     }
     override fun getListLoansFromData(): List<Loan>{
         return dataRepository.listLoans
+    }
+    ////////////////////// ITEM
+    override fun onItemRequestUpdated(
+        name: String,         famaly: String,         telephone: String,
+        amount: String,       percent: String,        period: String
+    ) {
+        handleLoginResult(name, famaly,telephone, amount, percent, period)
+    }
+
+    private fun handleLoginResult(name: String,         famaly: String,         phone: String,
+                                  amount: String,       percent: String,        period: String
+    ) {
+        if (!isNameValid(name)) {
+            mCreateNewLoan?.showNameError()
+            mCreateNewLoan?.toggleRegButton(enable = false)
+        } else if (!isFamalyValid(famaly)) {
+            mCreateNewLoan?.showFamalyError()
+            mCreateNewLoan?.toggleRegButton(enable = false)
+        } else if (!isPhoneValid(phone)) {
+            mCreateNewLoan?.showPhoneError()
+            mCreateNewLoan?.toggleRegButton(enable = false)
+        } else if (!isAmountValid(amount)) {
+            mCreateNewLoan?.showAmountError()
+            mCreateNewLoan?.toggleRegButton(enable = false)
+        } else if (!isPercentValid(percent)) {
+            mCreateNewLoan?.showPercentError()
+            mCreateNewLoan?.toggleRegButton(enable = false)
+        }else if (!isPeriodValid(period)) {
+            mCreateNewLoan?.showPeriodError()
+            mCreateNewLoan?.toggleRegButton(enable = false)
+        } else {
+            mCreateNewLoan?.toggleRegButton(enable = true)
+        }
+    }
+    private fun isNameValid(username: String): Boolean {
+        return username.length > 2
+    }
+    private fun isFamalyValid(password: String): Boolean {
+        return password.length > 1
+    }
+    private fun isPhoneValid(phone: String): Boolean {
+        return phone.length>15
+
+    }
+    private fun isAmountValid(amount: String): Boolean {
+        if ( amount.length > 1){
+            if (amount.toInt() > 999) return true}
+        return false
+    }
+    private fun isPercentValid(percent: String): Boolean {
+        return percent.length > 2
+    }
+    private fun isPeriodValid(period: String): Boolean {
+        return period.length > 0
     }
 }

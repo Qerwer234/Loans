@@ -11,6 +11,7 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome!"</string>
     <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_name">Не менее 3 символов</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="invalid_repeat_password">Passwords are different</string>
     <string name="login_failed">"Login failed"</string>
@@ -70,4 +71,6 @@
     <string name="enter_telefon">Укажите телефон</string>
     <string name="sendto">Отправить</string>
     <string name="refreshto">Обновить</string>
+    <string name="invalid_phone">Пример: +7-909-999-99-99</string>
+    <string name="invalid_amout">Не менее 1000 руб.</string>
 </resources>

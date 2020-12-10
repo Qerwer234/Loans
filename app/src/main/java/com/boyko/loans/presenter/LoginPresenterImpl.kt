@@ -144,8 +144,8 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
         mRegister?.let { showFragmentRight(it, fragmentManager) }
     }
 
-    override fun onLoginDataUpdated(username: String, password: String, passwoRdrepeat: String) {
-    handleLoginResult(username, password, passwoRdrepeat)
+    override fun onLoginDataUpdated(username: String, password: String, passwordRepeat: String) {
+    handleLoginResult(username, password, passwordRepeat)
     }
 
     private fun handleLoginResult(

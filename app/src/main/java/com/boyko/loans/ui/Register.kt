@@ -57,10 +57,7 @@ class Register : Fragment() {
                 presenterF = presenter
             }
     }
-//
-//    fun toast(){
-//        Toast.makeText(context, "er.get(e.message.toString())", Toast.LENGTH_LONG).show()
-//    }
+
     fun showUsernameError() {
         editText_user_reg.error = getString(R.string.invalid_username)
     }
