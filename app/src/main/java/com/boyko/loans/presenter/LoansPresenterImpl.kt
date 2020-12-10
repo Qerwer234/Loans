@@ -44,16 +44,13 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
     private val api = Client.apiService
 
     override fun attachView(
-            viewLoans: Loans,
-            viewCreateNewLoan: CreateNewLoan
+            viewLoans: Loans
     ) {
-        this.mLoans             = viewLoans
-        this.mCreateNewLoan  = viewCreateNewLoan
+        this.mLoans  = viewLoans
     }
 
     override fun detachView() {
-        this.mLoans          = null
-        this.mLoanItem       = null
+        this.mLoans  = null
     }
     override fun showFragmentLeft(fragment: Fragment, fragmentManager: FragmentManager) {
         fragmentManager.beginTransaction()
@@ -71,6 +68,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
     }
 
     override fun showCreateNewLoan(fragmentManager: FragmentManager) {
+        mCreateNewLoan = CreateNewLoan.newInstance(this)
         this.mCreateNewLoan?.let { showFragmentLeft(it, fragmentManager) }
     }
 
@@ -105,7 +103,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
                                 uiThread {
                                     Toast.makeText(
                                         context,
-                                        "В списке ${listLoanCall.size} заявок",
+                                        context.getString(R.string.count_loans)  +" "+ listLoanCall.size.toString(),
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
@@ -225,12 +223,12 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         } else if (!isAmountValid(amount)) {
             mCreateNewLoan?.showAmountError()
             mCreateNewLoan?.toggleRegButton(enable = false)
-        } else if (!isPercentValid(percent)) {
-            mCreateNewLoan?.showPercentError()
-            mCreateNewLoan?.toggleRegButton(enable = false)
-        }else if (!isPeriodValid(period)) {
-            mCreateNewLoan?.showPeriodError()
-            mCreateNewLoan?.toggleRegButton(enable = false)
+//        } else if (!isPercentValid(percent)) {
+//            mCreateNewLoan?.showPercentError()
+//            mCreateNewLoan?.toggleRegButton(enable = false)
+//        }else if (!isPeriodValid(period)) {
+//            mCreateNewLoan?.showPeriodError()
+//            mCreateNewLoan?.toggleRegButton(enable = false)
         } else {
             mCreateNewLoan?.toggleRegButton(enable = true)
         }
@@ -242,7 +240,10 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         return password.length > 1
     }
     private fun isPhoneValid(phone: String): Boolean {
-        return phone.length>15
+        val pattern = compile("^\\+[0-9]+\\-[0-9]{3}+\\-[0-9]{3}+\\-[0-9]{2}+\\-[0-9]{2}")
+        val matcher = pattern.matcher(phone)
+        return matcher.find()
+    //phone.length == 16
 
     }
     private fun isAmountValid(amount: String): Boolean {
@@ -250,10 +251,10 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
             if (amount.toInt() > 999) return true}
         return false
     }
-    private fun isPercentValid(percent: String): Boolean {
-        return percent.length > 2
-    }
-    private fun isPeriodValid(period: String): Boolean {
-        return period.length > 0
-    }
+//    private fun isPercentValid(percent: String): Boolean {
+//        return percent.length > 2
+//    }
+//    private fun isPeriodValid(period: String): Boolean {
+//        return period.length > 0
+//    }
 }

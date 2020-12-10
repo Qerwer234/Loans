@@ -54,6 +54,7 @@
     <string name="percentinyear">Процент, годовых</string>
     <string name="periodmonth">Период, месяцев</string>
     <string name="amount">Сумма</string>
+    <string name="count_loans">Количество заявок в списке:</string>
     <string name="telefon">Телефон</string>
     <string name="tomainpage">На главную страницу</string>
     <string name="namecustomer">Имя заказчика</string>

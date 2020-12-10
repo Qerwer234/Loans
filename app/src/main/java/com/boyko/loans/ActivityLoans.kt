@@ -21,7 +21,6 @@ const val THEME_DARK = 1
 class ActivityLoans : AppCompatActivity() {
 
     private val mLoans          by lazy {  Loans.newInstance( presenter) }
-    private val mCreateNewLoan  by lazy {  CreateNewLoan.newInstance (presenter) }
     private val loginRepository by lazy {  LoginRepository( applicationContext) }
     private val presenter       by lazy { LoansPresenterFactory.create( applicationContext ) }
     private val sharedPrefs     by lazy {  getSharedPreferences( PREFS_NAME, Context.MODE_PRIVATE ) }
@@ -31,11 +30,11 @@ class ActivityLoans : AppCompatActivity() {
         setContentView(R.layout.activity_loans)
 
         initPresenter()
-        presenter.showFragmentLeft(mLoans, fragmentManager = supportFragmentManager)
+        presenter.showFragmentLeft(mLoans, supportFragmentManager)
     }
 
     private fun initPresenter() {
-        presenter.attachView(mLoans, mCreateNewLoan)
+        presenter.attachView(mLoans)
     }
 
     override fun onBackPressed() {

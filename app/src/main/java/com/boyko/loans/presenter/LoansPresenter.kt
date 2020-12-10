@@ -10,7 +10,7 @@ import com.boyko.loans.ui.Loans
 
 interface LoansPresenter {
 
-    fun attachView(viewLoans: Loans, viewCreateNewLoan: CreateNewLoan)
+    fun attachView(viewLoans: Loans)
 
     fun detachView()
 

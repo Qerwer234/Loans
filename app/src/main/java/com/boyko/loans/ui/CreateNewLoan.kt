@@ -41,6 +41,7 @@ class CreateNewLoan : Fragment() {
                 getString(R.string.no_connection))
             }
         }
+        btn_send.isEnabled = false
     }
 
     private fun createLoanRequestObject(): LoanRequest {
@@ -121,26 +122,26 @@ class CreateNewLoan : Fragment() {
                 tv_new_period.text.toString()
             )
         }
-        tv_new_percent.afterTextChanged {
-            presenter?.onItemRequestUpdated(
-                tv_new_first_name.text.toString(),
-                tv_new_last_name.text.toString(),
-                tv_new_phone.text.toString(),
-                tv_new_amount.text.toString(),
-                tv_new_percent.text.toString(),
-                tv_new_period.text.toString()
-            )
-        }
-        tv_new_period.afterTextChanged {
-            presenter?.onItemRequestUpdated(
-                tv_new_first_name.text.toString(),
-                tv_new_last_name.text.toString(),
-                tv_new_phone.text.toString(),
-                tv_new_amount.text.toString(),
-                tv_new_percent.text.toString(),
-                tv_new_period.text.toString()
-            )
-        }
+//        tv_new_percent.afterTextChanged {
+//            presenter?.onItemRequestUpdated(
+//                tv_new_first_name.text.toString(),
+//                tv_new_last_name.text.toString(),
+//                tv_new_phone.text.toString(),
+//                tv_new_amount.text.toString(),
+//                tv_new_percent.text.toString(),
+//                tv_new_period.text.toString()
+//            )
+//        }
+//        tv_new_period.afterTextChanged {
+//            presenter?.onItemRequestUpdated(
+//                tv_new_first_name.text.toString(),
+//                tv_new_last_name.text.toString(),
+//                tv_new_phone.text.toString(),
+//                tv_new_amount.text.toString(),
+//                tv_new_percent.text.toString(),
+//                tv_new_period.text.toString()
+//            )
+//        }
     }
     companion object {
         @JvmStatic
