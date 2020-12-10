@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="app_margin">5dp</dimen>
+    <dimen name="padding_normal_TextView">5dp</dimen>
+    <dimen name="normalText">14sp</dimen>
+    <dimen name="bigText">18sp</dimen>
+    <dimen name="app_small_margin">10dp</dimen>
+    <dimen name="smallText">10sp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="button_layout_width">180dp</dimen>
+
+    <dimen name="button_layout_marginTop">20dp</dimen>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="button_background">#434343</color>
+    <color name="bg_edit">#CC756161</color>
+    <color name="colorBlack">#FFFFFF</color>
+    <color name="item_loan_bg_registred">#2E3B68</color>
+    <color name="item_loan_bg_aproved">#026702</color>
+    <color name="item_loan_bg_rejected">#590000</color>
+</resources>

@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Loans</string>
+    <string name="get_money">Запросить новй займ</string>
+    <string name="history_loans">История заявок</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_repeat_password">Passwords are different</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="error_login"> Ошибка авторизации. \nНе верный логин или пароль.</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_new_loan">Новый заим</string>
+
+    <string name="button_layout_height">wrap_content</string>
+    <string name="button_layout_centerHorizontal">true</string>
+    <string name="no_connection">Отсутствует соединение с сетью. Включите мобильные данные!</string>
+    <string name="password">password</string>
+    <string name="user_already_exist">Пользователь с таким именем уже зарегистрирован</string>
+    <string name="registration_successful"> , вы успешно зарегестрированы</string>
+    <string name="authorization_successful"> , вы успешно авторизованы</string>
+    <string name="if_loan_registred">Заявка принята на рассмотрение. В ближайшее время мы Вам сообщим о результате.</string>
+    <string name="if_loan_aproved">Заявка на займ одобрена! Для получения займа необходимо посетить офис банка и подписать договор.
+        \nНаши контакты:
+        \nг. Томск\n Мусы Джалиля, д. 11
+        \n+ 7 383 335-80-88, 336-49-49
+        \npersonal@cft.ru</string>
+    <string name="if_loan_rejected">Данная заявка отклонена.</string>
+    <string name="status_REGISTRED">ЗАРЕГИСТРИРОВАНО</string>
+    <string name="status_APPROVED">ОДОБРЕНО</string>
+    <string name="status_REJECTED">ОТКЛОНЕНА</string>
+    <string name="status_ERRORINLOAN">ОШИБКА В ЗАЯВКЕ</string>
+    <string name="item_loan_period">срок,\nмесяцев</string>
+    <string name="item_loan_status">статус</string>
+    <string name="item_loan_rercent">% \n годовых</string>
+    <string name="item_loan_amount">Сумма</string>
+    <string name="registeration">регистрация</string>
+    <string name="action_darck">Темная тема</string>
+    <string name="action_light">Светлая тема</string>
+    <string name="btn_login">Вход</string>
+    <string name="enter_password_repeat">enter password repeat</string>
+    <string name="enter_password">enter password</string>
+    <string name="enter_your_email">enter your email</string>
+    <string name="form_register">Form register</string>
+    <string name="status">Статус</string>
+</resources>

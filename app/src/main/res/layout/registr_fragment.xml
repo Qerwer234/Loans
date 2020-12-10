@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/bg_login"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_register"
+        android:textColor="#81D4FA"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp" />
+
+    <EditText
+        android:id="@+id/editText_user_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:drawableStart="@drawable/img_taikhoan"
+        android:hint="@string/enter_your_email"
+        style="@style/edit_login"/>
+
+    <EditText
+        android:id="@+id/editText_password_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_user_reg"
+        android:drawableStart="@drawable/img_matkhau"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        style="@style/edit_login"/>
+
+    <EditText
+        android:id="@+id/editText_password_repeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_password_reg"
+        android:drawableStart="@drawable/img_matkhau2"
+        android:hint="@string/enter_password_repeat"
+        android:inputType="textPassword"
+        style="@style/edit_login"
+        android:autofillHints="123456" />
+    <Button
+        android:id="@+id/btn_reg_register"
+        android:text="@string/registeration"
+        android:layout_below="@+id/editText_password_repeat"
+        android:background="@drawable/bg_button"
+        android:enabled="false"
+        style="@style/Buttons" />
+    <Button
+        android:id="@+id/btn_reg_login"
+        android:text="@string/btn_login"
+        android:layout_below="@+id/btn_reg_register"
+        android:background="@drawable/bg_button"
+        style="@style/Buttons" />
+
+
+</RelativeLayout>
