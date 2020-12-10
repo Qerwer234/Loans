@@ -23,54 +23,54 @@
                 style="@style/bigText"
                 android:layout_gravity="fill"
                 android:gravity="center"
-                android:text="Заполните свободные поля" />
+                android:text="@string/fill_free_fields" />
 
             <TextView
                 android:id="@+id/tv_new_fn1"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
-                android:text="Имя" />
+                android:text="@string/name" />
 
             <EditText
                 android:id="@+id/tv_new_first_name"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
                 android:layout_columnWeight="5"
-                android:hint="Введите Имя"/>
+                android:hint="@string/enter_name"/>
 
             <TextView
                 android:id="@+id/tv_new_last_name1"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
                 android:layout_columnWeight="1"
-                android:text="Фамилия" />
+                android:text="@string/famaly" />
 
             <EditText
                 android:id="@+id/tv_new_last_name"
                 android:layout_columnWeight="1"
                 android:layout_columnSpan="1"
-                android:hint="Введите Фамилию"
+                android:hint="@string/enter_famaly"
                 style="@style/normalText" />
             <TextView
                 android:id="@+id/tv_new_phone1"
                 android:layout_columnWeight="1"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
-                android:text="Телефон"/>
+                android:text="@string/telefon"/>
 
             <EditText
                 android:id="@+id/tv_new_phone"
                 android:layout_columnWeight="1"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
-                android:hint="Укажите телефон"/>
+                android:hint="@string/enter_telefon"/>
             <TextView
                 android:id="@+id/tv_new_amount1"
                 android:layout_columnWeight="1"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
-                android:text="Сумма"/>
+                android:text="@string/amount"/>
 
             <EditText
                 android:id="@+id/tv_new_amount"
@@ -82,7 +82,7 @@
                 android:layout_columnWeight="1"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
-                android:text="Процент, годовых"/>
+                android:text="@string/percentinyear"/>
 
             <EditText
                 android:id="@+id/tv_new_percent"
@@ -94,7 +94,7 @@
                 android:layout_columnWeight="1"
                 style="@style/normalText"
                 android:layout_columnSpan="1"
-                android:text="Период, месяцев" />
+                android:text="@string/periodmonth" />
 
             <EditText
                 android:id="@+id/tv_new_period"
@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/bg_button"
-            android:text="Обновить"
+            android:text="@string/refreshto"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -127,7 +127,7 @@
             android:layout_margin="@dimen/app_margin"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_button"
-            android:text="Отправить"
+            android:text="@string/sendto"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 

@@ -32,12 +32,12 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
     private val api = Client.apiService
 
     override fun attachView(
-            login : Login,
-            regis : Register,
+            loginFragment : Login,
+            registerFragment : Register,
             loginActivity: LoginActivity
     ) {
-        this.mLogin         = login
-        this.mRegis         = regis
+        this.mLogin         = loginFragment
+        this.mRegis         = registerFragment
         this.mLoginActivity = loginActivity
     }
 

@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Form login"
+        android:text="@string/form_login"
         android:textColor="#81D4FA"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
@@ -25,8 +25,8 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
-        android:drawableLeft="@drawable/img_taikhoan"
-        android:hint="user name"
+        android:drawableStart="@drawable/img_taikhoan"
+        android:hint="@string/user_name"
         style="@style/edit_login"
          />
 
@@ -37,7 +37,7 @@
         android:layout_below="@+id/editText_username"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:drawableLeft="@drawable/img_matkhau"
+        android:drawableStart="@drawable/img_matkhau"
         style="@style/edit_login"/>
 
     <Button

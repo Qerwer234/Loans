@@ -27,7 +27,7 @@
             style="@style/bigText"
             android:layout_gravity="fill"
             android:gravity="center"
-            android:text="Запрос успешно обработан!" />
+            android:text="@string/requestokey" />
 
         <TextView
             android:id="@+id/tv_item_state1"
@@ -35,8 +35,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             style="@style/normalText"
-            android:gravity="left"
-            android:text="Статус"/>
+            android:text="@string/status"/>
 
         <TextView
             android:id="@+id/tv_item_state"
@@ -44,8 +43,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             style="@style/normalText"
-            android:gravity="left"
-            android:text="Статус" />
+            android:text="@string/status" />
 
         <TextView
             android:id="@+id/tv_item_id1"
@@ -53,8 +51,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             style="@style/normalText"
-            android:gravity="left"
-            android:text="Учетный номер займа"/>
+            android:text="@string/numberloan"/>
 
         <TextView
             android:id="@+id/tv_item_id"
@@ -62,16 +59,14 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             style="@style/normalText"
-            android:gravity="left"
-            android:text="номер займа"/>
+            android:text="@string/numberloan"/>
         <TextView
             android:id="@+id/tv_item_name1"
             android:layout_columnWeight="1"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             style="@style/normalText"
-            android:gravity="left"
-            android:text="Имя заказчика"/>
+            android:text="@string/namecustomer"/>
 
         <TextView
             android:id="@+id/tv_item_name"
@@ -79,16 +74,14 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             style="@style/normalText"
-            android:gravity="left"
-            android:text="Имя заказчика" />
+            android:text="@string/namecustomer" />
         <TextView
             android:id="@+id/tv_item_phone1"
             android:layout_columnWeight="1"
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Телефон"/>
+            android:text="@string/telefon"/>
 
         <TextView
             android:id="@+id/tv_item_phone"
@@ -96,16 +89,14 @@
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Телефон"/>
+            android:text="@string/telefon"/>
         <TextView
             android:id="@+id/tv_item_amount1"
             android:layout_columnWeight="1"
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Сумма"/>
+              android:text="@string/amount"/>
 
         <TextView
             android:id="@+id/tv_item_amount"
@@ -113,16 +104,14 @@
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Сумма"/>
+                    android:text="@string/amount"/>
         <TextView
             android:id="@+id/tv_item_percent1"
             android:layout_columnWeight="1"
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Процент, годовых"/>
+            android:text="@string/percentinyear"/>
 
         <TextView
             android:id="@+id/tv_item_percent"
@@ -130,16 +119,14 @@
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Процент, годовых"/>
+            android:text="@string/percentinyear"/>
         <TextView
             android:id="@+id/tv_item_period1"
             android:layout_columnWeight="1"
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Период, месяцев" />
+            android:text="@string/periodmonth" />
 
         <TextView
             android:id="@+id/tv_item_period"
@@ -147,8 +134,7 @@
             style="@style/normalText"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
-            android:gravity="left"
-            android:text="Период, месяцев" />
+            android:text="@string/periodmonth" />
     </GridLayout>
     </LinearLayout>
 
@@ -163,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/app_margin"
             android:background="@drawable/bg_button"
-            android:text="На главную страницу"
+            android:text="@string/tomainpage"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 </LinearLayout>

@@ -30,7 +30,7 @@
         style="@style/bigText"
         android:layout_gravity="fill"
         android:gravity="center"
-        android:text="Параметры займа" />
+        android:text="@string/loanparameters" />
 
     <TextView
         android:id="@+id/tv_item_state1"
@@ -38,7 +38,6 @@
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
         style="@style/normalText"
-        android:gravity="left"
         android:text="@string/status"/>
 
 
@@ -49,8 +48,7 @@
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
         style="@style/normalText"
-        android:gravity="left"
-        android:text="Статус" />
+        android:text="@string/status" />
 
 
     <TextView
@@ -59,8 +57,7 @@
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
         style="@style/normalText"
-        android:gravity="left"
-        android:text="Дата"/>
+        android:text="@string/date"/>
 
     <TextView
         android:id="@+id/tv_item_id"
@@ -68,8 +65,7 @@
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
         style="@style/normalText"
-        android:gravity="left"
-        android:text="номер займа"/>
+         android:text="@string/numberloan"/>
             <View
                 android:id="@+id/divider2"
                 android:layout_columnWeight="1"
@@ -83,8 +79,7 @@
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
         style="@style/normalText"
-        android:gravity="left"
-        android:text="Имя заказчика"/>
+        android:text="@string/namecustomer"/>
 
     <TextView
         android:id="@+id/tv_item_name"
@@ -92,8 +87,7 @@
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
         style="@style/normalText"
-        android:gravity="left"
-        android:text="Имя заказчика" />
+        android:text="@string/numberloan" />
             <View
                 android:id="@+id/divider3"
                 android:layout_columnWeight="2"
@@ -107,8 +101,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Телефон"/>
+        android:text="@string/telefon"/>
 
     <TextView
         android:id="@+id/tv_item_phone"
@@ -116,8 +109,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Телефон"/>
+        android:text="@string/telefon"/>
             <View
                 android:id="@+id/divider4"
                 android:layout_columnWeight="2"
@@ -131,8 +123,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Сумма"/>
+        android:text="@string/amount"/>
 
     <TextView
         android:id="@+id/tv_item_amount"
@@ -140,8 +131,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Сумма"/>
+        android:text="@string/amount"/>
             <View
                 android:id="@+id/divider5"
                 android:layout_columnWeight="2"
@@ -155,8 +145,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Процент, годовых"/>
+        android:text="@string/periodmonth"/>
 
     <TextView
         android:id="@+id/tv_item_percent"
@@ -164,8 +153,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Процент, годовых"/>
+        android:text="@string/periodmonth"/>
             <View
                 android:id="@+id/divider6"
                 android:layout_columnWeight="2"
@@ -179,8 +167,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Период, месяцев" />
+        android:text="@string/periodmonth" />
 
     <TextView
         android:id="@+id/tv_item_period"
@@ -188,8 +175,7 @@
         style="@style/normalText"
         android:layout_columnSpan="1"
         android:layout_gravity="fill"
-        android:gravity="left"
-        android:text="Период, месяцев" />
+        android:text="@string/periodmonth" />
             <View
                 android:id="@+id/divider7"
                 android:layout_columnWeight="2"

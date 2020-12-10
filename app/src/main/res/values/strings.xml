@@ -50,4 +50,24 @@
     <string name="enter_your_email">enter your email</string>
     <string name="form_register">Form register</string>
     <string name="status">Статус</string>
+    <string name="percentinyear">Процент, годовых</string>
+    <string name="periodmonth">Период, месяцев</string>
+    <string name="amount">Сумма</string>
+    <string name="telefon">Телефон</string>
+    <string name="tomainpage">На главную страницу</string>
+    <string name="namecustomer">Имя заказчика</string>
+    <string name="numberloan">номер займа</string>
+    <string name="requestokey">Запрос успешно обработан!</string>
+    <string name="date">Дата</string>
+    <string name="loanparameters">Параметры займа</string>
+    <string name="user_name">user name</string>
+    <string name="form_login">Form login</string>
+    <string name="fill_free_fields">Заполните свободные поля</string>
+    <string name="name">Имя</string>
+    <string name="enter_name">Введите Имя</string>
+    <string name="famaly">Фамилия</string>
+    <string name="enter_famaly">Введите Фамилию</string>
+    <string name="enter_telefon">Укажите телефон</string>
+    <string name="sendto">Отправить</string>
+    <string name="refreshto">Обновить</string>
 </resources>
