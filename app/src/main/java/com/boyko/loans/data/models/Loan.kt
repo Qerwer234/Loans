@@ -5,8 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "loan_database")
 data class Loan (
-    @PrimaryKey()
-    val id: Int?,
+    @PrimaryKey val id: Int?,
     val firstName : String,
     val lastName : String,
     val phoneNumber : String,

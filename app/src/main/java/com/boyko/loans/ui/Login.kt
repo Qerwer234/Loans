@@ -35,7 +35,7 @@ class Login : Fragment() {
         }
         return view
     }
-    fun userCreate(): LoggedInUser {
+    private fun userCreate(): LoggedInUser {
         return     LoggedInUser(editText_username.text.toString(),editText_password.text.toString())
     }
 

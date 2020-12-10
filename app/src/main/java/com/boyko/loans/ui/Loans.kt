@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.loans_fragment.*
 class Loans : Fragment() {
 
     lateinit var myAdapter: Adapter
-    var listLoan = listOf<Loan>()
+    private var listLoan = listOf<Loan>()
 
     private var presenter: LoansPresenter? = null
     private var onCreatedFirst = false
@@ -49,7 +49,7 @@ class Loans : Fragment() {
         fab.setOnClickListener {context?.let { presenter?.getAllLoans(context!!, getString(R.string.no_connection)) }}
     }
 
-    fun recycleViewCreate(listLoan: List<Loan>) {
+    private fun recycleViewCreate(listLoan: List<Loan>) {
         recyclerview.layoutManager = LinearLayoutManager(context)
         myAdapter = Adapter(listLoan, object : Adapter.Callback {
             override fun onItemClicked(item: Loan) {

@@ -13,7 +13,7 @@ class LoginActivity: AppCompatActivity(){
     private val loginPresenter  by lazy {  LoginPresenterFactory.create(applicationContext) }
     private val loginRepository by lazy {  LoginRepository(applicationContext) }
     private val mLogin          by lazy {  Login   .newInstance( loginPresenter) }
-    private val mRegis          by lazy {  Register.newInstance( loginPresenter) }
+    private val mRegister       by lazy {  Register.newInstance( loginPresenter) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class LoginActivity: AppCompatActivity(){
     }
 
     private fun initPresenter() {
-        loginPresenter.attachView(mLogin, mRegis, this)
+        loginPresenter.attachView(mLogin, mRegister, this)
     }
 
     override fun onBackPressed() {
@@ -38,6 +38,7 @@ class LoginActivity: AppCompatActivity(){
             else -> super.onBackPressed()
         }
     }
+
     override fun onDestroy() {
         loginPresenter.detachView()
         super.onDestroy()

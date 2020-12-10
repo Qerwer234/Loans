@@ -25,8 +25,8 @@ import java.util.concurrent.TimeUnit
 
 class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPresenter {
 
-    private var mLogin : Login? = null
-    private var mRegis : Register? = null
+    private var mLogin   : Login? = null
+    private var mRegister: Register? = null
     private var mLoginActivity : LoginActivity? = null
     private var errors = ErrorsMake()
     private val api = Client.apiService
@@ -37,13 +37,13 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
             loginActivity: LoginActivity
     ) {
         this.mLogin         = loginFragment
-        this.mRegis         = registerFragment
+        this.mRegister      = registerFragment
         this.mLoginActivity = loginActivity
     }
 
     override fun detachView() {
         this.mLogin        = null
-        this.mRegis        = null
+        this.mRegister     = null
         this.mLoginActivity= null
     }
 
@@ -125,7 +125,7 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
         mLogin?.let { showFragmentLeft(it, fragmentManager) }
     }
 
-    fun showFragmentRight(fragment: Fragment, fragmentManager: FragmentManager) {
+    private fun showFragmentRight(fragment: Fragment, fragmentManager: FragmentManager) {
         fragmentManager.beginTransaction()
             .addToBackStack(null)
             .setCustomAnimations(R.anim.right_in, R.anim.right_out)
@@ -141,11 +141,11 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
                 .commit()
     }
     override fun clickToRegistration(fragmentManager: FragmentManager) {
-        mRegis?.let { showFragmentRight(it, fragmentManager) }
+        mRegister?.let { showFragmentRight(it, fragmentManager) }
     }
 
-    override fun onLoginDataUpdated(username: String, password: String, passwordrepeat: String) {
-    handleLoginResult(username, password, passwordrepeat)
+    override fun onLoginDataUpdated(username: String, password: String, passwoRdrepeat: String) {
+    handleLoginResult(username, password, passwoRdrepeat)
     }
 
     private fun handleLoginResult(
@@ -154,16 +154,16 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
             passwordrepeat: String
     ) {
         if (!isUserNameValid(username)) {
-            mRegis?.showUsernameError()
-            mRegis?.toggleRegButton(enable = false)
+            mRegister?.showUsernameError()
+            mRegister?.toggleRegButton(enable = false)
         } else if (!isPasswordValid(password)) {
-            mRegis?.showPasswordError()
-            mRegis?.toggleRegButton(enable = false)
+            mRegister?.showPasswordError()
+            mRegister?.toggleRegButton(enable = false)
         } else if (!isRepeatPasswordValid(password, passwordrepeat)) {
-            mRegis?.showPasswordRepeatError()
-            mRegis?.toggleRegButton(enable = false)
+            mRegister?.showPasswordRepeatError()
+            mRegister?.toggleRegButton(enable = false)
         } else {
-            mRegis?.toggleRegButton(enable = true)
+            mRegister?.toggleRegButton(enable = true)
         }
     }
 
@@ -177,8 +177,8 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
     }
-    private fun isRepeatPasswordValid(password: String, repeatpassword: String): Boolean {
-        return password.equals(repeatpassword)
+    private fun isRepeatPasswordValid(password: String, repeatPassword: String): Boolean {
+        return password == repeatPassword
     }
     companion object{
         const val ACCEPT ="*/*"

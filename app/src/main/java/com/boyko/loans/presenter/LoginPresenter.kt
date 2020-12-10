@@ -16,7 +16,7 @@ interface LoginPresenter {
 
     fun detachView()
 
-    fun onLoginDataUpdated(username: String, password: String, passwordrepeat: String)
+    fun onLoginDataUpdated(username: String, password: String, passwordRepeat: String)
 
     fun showFragmentLeft(fragment: Fragment, fragmentManager: FragmentManager)
 

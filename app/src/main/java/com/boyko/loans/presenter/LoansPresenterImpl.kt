@@ -87,7 +87,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
     override fun getAllLoans(context: Context, toast: String) {
         if (isConnect(context)) {
             loginRepository.getBearer()?.let {
-                mLoans?.progressBar?.setVisibility(View.VISIBLE)
+                mLoans?.progressBar?.visibility = View.VISIBLE
                 val call = api.getLoansAll(ActivityLoans.ACCEPT, it)
                 call.observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
@@ -95,7 +95,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
                     .subscribe(object : Observer<List<Loan>> {
                         override fun onSubscribe(d: Disposable) {}
                         override fun onNext(listLoanCall: List<Loan>) {
-                            mLoans?.progressBar?.setVisibility(View.INVISIBLE)
+                            mLoans?.progressBar?.visibility = View.INVISIBLE
                             mLoans?.myAdapter?.update(listLoanCall)
                             doAsync {
                                 dataRepository.insert(listLoanCall)
@@ -110,7 +110,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
                         }
 
                         override fun onError(e: Throwable) {
-                            mLoans?.progressBar?.setVisibility(View.INVISIBLE)
+                            mLoans?.progressBar?.visibility = View.INVISIBLE
                             toastErrors(context, errors.errorToString(e.message.toString()))
                         }
 
