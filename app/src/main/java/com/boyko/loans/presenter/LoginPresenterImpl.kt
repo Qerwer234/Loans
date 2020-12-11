@@ -7,7 +7,7 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.boyko.loans.LoginActivity
+import com.boyko.loans.ActivityLogin
 import com.boyko.loans.R
 import com.boyko.loans.api.Client
 import com.boyko.loans.data.models.LoggedInUser
@@ -27,29 +27,34 @@ class LoginPresenterImpl(private val loginRepository: LoginRepository) : LoginPr
 
     private var mLogin   : Login? = null
     private var mRegister: Register? = null
-    private var mLoginActivity : LoginActivity? = null
+    private var mActivityLogin : ActivityLogin? = null
     private var errors = ErrorsMake()
     private val api = Client.apiService
 
     override fun attachView(
             loginFragment : Login,
             registerFragment : Register,
-            loginActivity: LoginActivity
+            activityLogin: ActivityLogin
     ) {
         this.mLogin         = loginFragment
         this.mRegister      = registerFragment
-        this.mLoginActivity = loginActivity
+        this.mActivityLogin = activityLogin
     }
 
     override fun detachView() {
         this.mLogin        = null
         this.mRegister     = null
-        this.mLoginActivity= null
+        this.mActivityLogin= null
     }
 
     private fun isConnect(context: Context): Boolean{
         return InternetConnection.checkConnection(context)
     }
+
+    override fun isAuth(): Boolean{
+        return loginRepository.isAuthorized()
+    }
+
     override fun onLoginButtonClicked(
             context: Context,
             intentToStart: Intent,

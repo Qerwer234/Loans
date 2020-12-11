@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.boyko.loans.ActivityLoans
-import com.boyko.loans.LoginActivity
+import com.boyko.loans.ActivityLogin
 import com.boyko.loans.R
 import com.boyko.loans.data.models.LoggedInUser
 import com.boyko.loans.presenter.LoginPresenter
@@ -34,7 +34,7 @@ class Register : Fragment() {
             fragmentManager?.let { it1 -> presenterF?.clickToLogin(it1) }
         }
         btnRegRegister.setOnClickListener {
-            presenterF?.clickRegistration(context!!, intent, activity as LoginActivity, userForReg(),
+            presenterF?.clickRegistration(context!!, intent, activity as ActivityLogin, userForReg(),
                 getString(R.string.registration_successful),
                 getString(R.string.user_already_exist),
                 getString(R.string.no_connection))

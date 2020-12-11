@@ -8,10 +8,9 @@ import com.boyko.loans.di.LoginPresenterFactory
 import com.boyko.loans.ui.Login
 import com.boyko.loans.ui.Register
 
-class LoginActivity: AppCompatActivity(){
+class ActivityLogin: AppCompatActivity(){
 
     private val loginPresenter  by lazy {  LoginPresenterFactory.create(applicationContext) }
-    private val loginRepository by lazy {  LoginRepository(applicationContext) }
     private val mLogin          by lazy {  Login   .newInstance( loginPresenter) }
     private val mRegister       by lazy {  Register.newInstance( loginPresenter) }
 
@@ -21,7 +20,7 @@ class LoginActivity: AppCompatActivity(){
 
         initPresenter()
 
-        if (loginRepository.isAuthorized()) {
+        if (loginPresenter.isAuth()) {
             startActivity(Intent(this, ActivityLoans::class.java))
             finish()
         } else loginPresenter.showFragmentLeft(mLogin, supportFragmentManager)

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ResultCFTswagger">
         <activity android:name=".ActivityLoans" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,8 +1,10 @@
 package com.boyko.loans.presenter
 
 import android.content.Context
+import android.util.Log
 import android.util.Patterns
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -37,7 +39,6 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
     LoansPresenter {
 
     private var mLoans           : Loans? = null
-    private var mLoanItem        : LoanItem? = null
     private var mCreateNewLoan   : CreateNewLoan? = null
     private var errors = ErrorsMake()
 
@@ -69,6 +70,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
 
     override fun showCreateNewLoan(fragmentManager: FragmentManager) {
         mCreateNewLoan = CreateNewLoan.newInstance(this)
+
         this.mCreateNewLoan?.let { showFragmentLeft(it, fragmentManager) }
     }
 
@@ -134,6 +136,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
 
     override fun loanConditionsRequest(context: Context, toast: String) {
         if (isConnect(context)) {
+
             loginRepository.getBearer()?.let {
                 val call = api.getLoansConditions(ActivityLoans.ACCEPT, it)
                 call
@@ -176,11 +179,10 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
                             }
 
                             override fun onError(e: Throwable) {
-                                toastErrors(context, errors.errorToString(e.message.toString()))
+                                toastErrors(context, errors.errorToString("error.code." + e.message.toString()))
                             }
 
-                            override fun onComplete() {
-                            }
+                            override fun onComplete() {  }
                         })
             }
         } else {
@@ -223,12 +225,6 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         } else if (!isAmountValid(amount)) {
             mCreateNewLoan?.showAmountError()
             mCreateNewLoan?.toggleRegButton(enable = false)
-//        } else if (!isPercentValid(percent)) {
-//            mCreateNewLoan?.showPercentError()
-//            mCreateNewLoan?.toggleRegButton(enable = false)
-//        }else if (!isPeriodValid(period)) {
-//            mCreateNewLoan?.showPeriodError()
-//            mCreateNewLoan?.toggleRegButton(enable = false)
         } else {
             mCreateNewLoan?.toggleRegButton(enable = true)
         }

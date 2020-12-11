@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.boyko.loans.ActivityLoans
-import com.boyko.loans.LoginActivity
+import com.boyko.loans.ActivityLogin
 import com.boyko.loans.R
 import com.boyko.loans.data.models.LoggedInUser
 import com.boyko.loans.presenter.LoginPresenter
@@ -27,7 +27,7 @@ class Login : Fragment() {
 
 
         btnLogin.setOnClickListener{
-            presenterF?.onLoginButtonClicked(context!!, intent, activity as LoginActivity, userCreate(), getString(R.string.authorization_successful), getString(R.string.error_login), getString(R.string.no_connection))
+            presenterF?.onLoginButtonClicked(context!!, intent, activity as ActivityLogin, userCreate(), getString(R.string.authorization_successful), getString(R.string.error_login), getString(R.string.no_connection))
         }
 
         btnReg.setOnClickListener{
