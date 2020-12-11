@@ -1,4 +1,4 @@
-package com.boyko.loans.ui
+package com.boyko.loans.ui.itemfragment
 
 
 import android.os.Bundle

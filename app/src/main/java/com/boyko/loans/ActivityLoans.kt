@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
-import com.boyko.loans.data.repositiry.LoginRepository
 import com.boyko.loans.di.LoansPresenterFactory
-import com.boyko.loans.ui.CreateNewLoan
 import com.boyko.loans.ui.Loans
+import com.boyko.loans.ui.itemfragment.CreateNewLoan
 import com.boyko.loans.ui.itemfragment.CreatedNewLoan
 import com.boyko.loans.ui.itemfragment.LoanItem
 

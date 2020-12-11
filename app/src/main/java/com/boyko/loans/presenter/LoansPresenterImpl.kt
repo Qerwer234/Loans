@@ -1,10 +1,7 @@
 package com.boyko.loans.presenter
 
 import android.content.Context
-import android.util.Log
-import android.util.Patterns
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -17,8 +14,8 @@ import com.boyko.loans.data.models.LoanRequest
 import com.boyko.loans.data.repositiry.DataRepository
 import com.boyko.loans.data.repositiry.LoginRepository
 import com.boyko.loans.errors.ErrorsMake
-import com.boyko.loans.ui.CreateNewLoan
 import com.boyko.loans.ui.Loans
+import com.boyko.loans.ui.itemfragment.CreateNewLoan
 import com.boyko.loans.ui.itemfragment.CreatedNewLoan
 import com.boyko.loans.ui.itemfragment.LoanItem
 import com.boyko.loans.util.InternetConnection
@@ -179,7 +176,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
                             }
 
                             override fun onError(e: Throwable) {
-                                toastErrors(context, errors.errorToString("error.code." + e.message.toString()))
+                                toastErrors(context, errors.errorToString(loanRequest.javaClass.name + e.message.toString()))
                             }
 
                             override fun onComplete() {  }
@@ -237,7 +234,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
     private fun isPhoneValid(phone: String): Boolean {
         val pattern = compile("^\\+[0-9]+\\-[0-9]{3}+\\-[0-9]{3}+\\-[0-9]{2}+\\-[0-9]{2}")
         val matcher = pattern.matcher(phone)
-        return matcher.find()
+        return matcher.find() && phone.length == 16
     //phone.length == 16
 
     }

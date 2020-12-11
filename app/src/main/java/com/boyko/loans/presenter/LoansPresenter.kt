@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.boyko.loans.data.models.Loan
 import com.boyko.loans.data.models.LoanRequest
-import com.boyko.loans.ui.CreateNewLoan
 import com.boyko.loans.ui.Loans
 
 interface LoansPresenter {

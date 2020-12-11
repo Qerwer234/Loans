@@ -10,6 +10,6 @@ object LoginPresenterFactory {
     fun create(context: Context): LoginPresenter {
         val loginRepository = LoginRepository(context)
 
-        return LoginPresenterImpl (loginRepository)
+        return LoginPresenterImpl(loginRepository)
     }
 }
