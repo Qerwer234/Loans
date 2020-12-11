@@ -232,9 +232,9 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         return password.length > 1
     }
     private fun isPhoneValid(phone: String): Boolean {
-        val pattern = compile("^\\+[0-9]+\\-[0-9]{3}+\\-[0-9]{3}+\\-[0-9]{2}+\\-[0-9]{2}")
+        val pattern = compile("^\\+[0-9]+\\-[0-9]{3}+\\-[0-9]{3}+\\-[0-9]{2}+\\-[0-9]{2}$")
         val matcher = pattern.matcher(phone)
-        return matcher.find() && phone.length == 16
+        return matcher.find()
     //phone.length == 16
 
     }
