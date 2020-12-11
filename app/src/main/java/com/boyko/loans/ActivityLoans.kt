@@ -21,7 +21,7 @@ const val THEME_DARK = 1
 class ActivityLoans : AppCompatActivity() {
 
     private val mLoans          by lazy {  Loans.newInstance( presenter) }
-    private val loginRepository by lazy {  LoginRepository( applicationContext) }
+    //private val loginRepository by lazy {  LoginRepository( applicationContext) }
     private val presenter       by lazy { LoansPresenterFactory.create( applicationContext ) }
     private val sharedPrefs     by lazy {  getSharedPreferences( PREFS_NAME, Context.MODE_PRIVATE ) }
 
@@ -53,7 +53,7 @@ class ActivityLoans : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_logout -> {
-                loginRepository.logOut()
+                presenter.logOut()
                 finish()
             }
             R.id.action_darck -> setTheme(AppCompatDelegate.MODE_NIGHT_YES, THEME_DARK)

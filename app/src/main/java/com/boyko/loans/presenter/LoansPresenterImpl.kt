@@ -203,16 +203,15 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         return dataRepository.listLoans
     }
     ////////////////////// ITEM
-    override fun onItemRequestUpdated(
-        name: String,         famaly: String,         telephone: String,
-        amount: String,       percent: String,        period: String
-    ) {
-        handleLoginResult(name, famaly,telephone, amount, percent, period)
+    override fun onItemRequestUpdated( name: String, famaly: String, telephone: String, amount: String ) {
+        handleLoginResult(name, famaly,telephone, amount)
     }
 
-    private fun handleLoginResult(name: String,         famaly: String,         phone: String,
-                                  amount: String,       percent: String,        period: String
-    ) {
+    override fun logOut() {
+        loginRepository.logOut()
+    }
+
+    private fun handleLoginResult( name: String, famaly: String, phone: String, amount: String ) {
         if (!isNameValid(name)) {
             mCreateNewLoan?.showNameError()
             mCreateNewLoan?.toggleRegButton(enable = false)

@@ -59,7 +59,7 @@ class CreateNewLoan : Fragment() {
         tv_new_percent.setText(loanConditions?.percent.toString())
         tv_new_period .setText(loanConditions?.period.toString())
     }
-    ///////////
+
     fun showNameError() {
         tv_new_first_name.error = getString(R.string.invalid_name)
     }
@@ -72,12 +72,6 @@ class CreateNewLoan : Fragment() {
     fun showAmountError() {
         tv_new_amount.error = getString(R.string.invalid_amout)
     }
-    fun showPercentError() {
-        tv_new_percent.error = getString(R.string.invalid_password)
-    }
-    fun showPeriodError() {
-        tv_new_period.error = getString(R.string.invalid_repeat_password)
-    }
     fun toggleRegButton(enable: Boolean) {
         btn_send.isEnabled = enable
     }
@@ -87,9 +81,7 @@ class CreateNewLoan : Fragment() {
                 tv_new_first_name.text.toString(),
                 tv_new_last_name.text.toString(),
                 tv_new_phone.text.toString(),
-                tv_new_amount.text.toString(),
-                tv_new_percent.text.toString(),
-                tv_new_period.text.toString()
+                tv_new_amount.text.toString()
             )
         }
         tv_new_last_name.afterTextChanged {
@@ -97,9 +89,7 @@ class CreateNewLoan : Fragment() {
                 tv_new_first_name.text.toString(),
                 tv_new_last_name.text.toString(),
                 tv_new_phone.text.toString(),
-                tv_new_amount.text.toString(),
-                tv_new_percent.text.toString(),
-                tv_new_period.text.toString()
+                tv_new_amount.text.toString()
             )
         }
         tv_new_phone.afterTextChanged {
@@ -107,9 +97,7 @@ class CreateNewLoan : Fragment() {
                 tv_new_first_name.text.toString(),
                 tv_new_last_name.text.toString(),
                 tv_new_phone.text.toString(),
-                tv_new_amount.text.toString(),
-                tv_new_percent.text.toString(),
-                tv_new_period.text.toString()
+                tv_new_amount.text.toString()
             )
         }
         tv_new_amount.afterTextChanged {
@@ -117,31 +105,9 @@ class CreateNewLoan : Fragment() {
                 tv_new_first_name.text.toString(),
                 tv_new_last_name.text.toString(),
                 tv_new_phone.text.toString(),
-                tv_new_amount.text.toString(),
-                tv_new_percent.text.toString(),
-                tv_new_period.text.toString()
+                tv_new_amount.text.toString()
             )
         }
-//        tv_new_percent.afterTextChanged {
-//            presenter?.onItemRequestUpdated(
-//                tv_new_first_name.text.toString(),
-//                tv_new_last_name.text.toString(),
-//                tv_new_phone.text.toString(),
-//                tv_new_amount.text.toString(),
-//                tv_new_percent.text.toString(),
-//                tv_new_period.text.toString()
-//            )
-//        }
-//        tv_new_period.afterTextChanged {
-//            presenter?.onItemRequestUpdated(
-//                tv_new_first_name.text.toString(),
-//                tv_new_last_name.text.toString(),
-//                tv_new_phone.text.toString(),
-//                tv_new_amount.text.toString(),
-//                tv_new_percent.text.toString(),
-//                tv_new_period.text.toString()
-//            )
-//        }
     }
     companion object {
         @JvmStatic

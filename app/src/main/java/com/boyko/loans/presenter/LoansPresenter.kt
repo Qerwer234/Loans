@@ -34,5 +34,7 @@ interface LoansPresenter {
 
     fun getListLoansFromData(): List<Loan>
 
-    fun onItemRequestUpdated( name: String, famaly: String, telephone: String, amount: String, percent: String, period: String )
+    fun onItemRequestUpdated( name: String, famaly: String, telephone: String, amount: String )
+
+    fun logOut()
 }
