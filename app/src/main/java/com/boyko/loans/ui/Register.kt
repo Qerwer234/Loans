@@ -18,7 +18,7 @@ import com.boyko.loans.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.registr_fragment.*
 
 
-class Register : Fragment() {
+open class Register : Fragment() {
 
     var presenterF: LoginPresenter? = null
 

@@ -8,7 +8,7 @@ import com.boyko.loans.di.LoginPresenterFactory
 import com.boyko.loans.ui.Login
 import com.boyko.loans.ui.Register
 
-class ActivityLogin: AppCompatActivity(){
+open class ActivityLogin: AppCompatActivity(){
 
     private val loginPresenter  by lazy {  LoginPresenterFactory.create(applicationContext) }
     private val mLogin          by lazy {  Login   .newInstance( loginPresenter) }

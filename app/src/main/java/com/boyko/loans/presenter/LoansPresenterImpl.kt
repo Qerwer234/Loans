@@ -95,15 +95,18 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
                     .subscribe(object : Observer<List<Loan>> {
                         override fun onSubscribe(d: Disposable) {}
                         override fun onNext(listLoanCall: List<Loan>) {
-                            mLoans?.progressBar?.visibility = View.INVISIBLE
-                            mLoans?.myAdapter?.update(listLoanCall)
+                            mLoans?.apply {
+                                progressBar?.visibility = View.INVISIBLE
+                                myAdapter.update(listLoanCall)
+                                recyclerview?.smoothScrollToPosition(0)
+                            }
                             doAsync {
                                 dataRepository.insert(listLoanCall)
                                 uiThread {
                                     Toast.makeText(
-                                        context,
-                                        context.getString(R.string.count_loans)  +" "+ listLoanCall.size.toString(),
-                                        Toast.LENGTH_LONG
+                                            context,
+                                            context.getString(R.string.count_loans) + " " + listLoanCall.size.toString(),
+                                            Toast.LENGTH_LONG
                                     ).show()
                                 }
                             }
@@ -112,21 +115,24 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
                         override fun onError(e: Throwable) {
                             mLoans?.progressBar?.visibility = View.INVISIBLE
                             toastErrors(context, errors.errorToString(e.message.toString()))
+                            setListLoansToFragment()
+                            toastErrors(context, errors.errorToString(context.resources.getString(R.string.uploaded_history)))
                         }
 
                         override fun onComplete() {}
                     })
             }
         } else {
-            Toast.makeText(context, toast, Toast.LENGTH_LONG).show()
+            Toast.makeText(context, toast, Toast.LENGTH_SHORT).show()
             setListLoansToFragment()
+            Toast.makeText(context, context.resources.getString(R.string.uploaded_history), Toast.LENGTH_LONG).show()
         }
     }
 
     private fun toastErrors(context: Context, e: String) {
         val mainHandler = android.os.Handler(context.mainLooper)
         val runnable = Runnable {
-            Toast.makeText(context, e,Toast.LENGTH_LONG).show()
+            Toast.makeText(context, e,Toast.LENGTH_SHORT).show()
         }
         mainHandler.post(runnable)
     }
@@ -235,18 +241,10 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         val pattern = compile("^\\+[0-9]+\\-[0-9]{3}+\\-[0-9]{3}+\\-[0-9]{2}+\\-[0-9]{2}$")
         val matcher = pattern.matcher(phone)
         return matcher.find()
-    //phone.length == 16
-
     }
     private fun isAmountValid(amount: String): Boolean {
         if ( amount.length > 1){
             if (amount.toInt() > 999) return true}
         return false
     }
-//    private fun isPercentValid(percent: String): Boolean {
-//        return percent.length > 2
-//    }
-//    private fun isPeriodValid(period: String): Boolean {
-//        return period.length > 0
-//    }
 }

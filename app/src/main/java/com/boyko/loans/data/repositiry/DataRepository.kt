@@ -13,4 +13,8 @@ class DataRepository ( val dbLoans: LoanDb){
         dbLoans.loanDao().insert(listLoanCall)
 
     }
+    fun clear() {
+        dbLoans.loanDao().clear()
+
+    }
 }

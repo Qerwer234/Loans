@@ -1,56 +1,59 @@
 package com.boyko.loans
 
 import android.content.Context
-import android.util.Log
-import com.boyko.loans.data.repositiry.LoginRepository
+import android.provider.Settings.Global.getString
+import android.text.Editable
+import android.util.AttributeSet
+import android.view.ViewGroup
+import android.widget.EditText
 import com.boyko.loans.di.LoginPresenterFactory
 import com.boyko.loans.presenter.LoginPresenter
 import com.boyko.loans.ui.Login
 import com.boyko.loans.ui.Register
-import com.nhaarman.mockito_kotlin.mock
-import org.junit.Assert.assertEquals
+import com.nhaarman.mockito_kotlin.verify
+import kotlinx.android.synthetic.main.login_fragment.*
+import org.jetbrains.anko.custom.ankoView
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
-import org.mockito.runners.MockitoJUnitRunner
-import org.robolectric.RobolectricTestRunner
+import org.mockito.junit.MockitoJUnitRunner
+import java.util.jar.Attributes
+import java.util.zip.Inflater
 
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
+@RunWith(MockitoJUnitRunner::class)
 class ExampleUnitTest {
 
-    private val loginPresenter  by lazy {  LoginPresenterFactory.create() }
-    private val mLogin          by lazy {  Login   .newInstance( loginPresenter) }
-    private val mRegister       by lazy {  Register.newInstance( loginPresenter) }
+    lateinit var pre : LoginPresenter
 
-    private lateinit var activityLogin : ActivityLogin
+    @Mock
+    lateinit var mReg : Register
+    @Mock
+    lateinit var mLogin : Login
+    @Mock
+    lateinit var mAL : ActivityLogin
+    @Mock
+    lateinit var context : Context
 
-    //private lateinit var context: Context
-
-    private lateinit var loginRepository: LoginRepository
-
-    private lateinit var presenter: LoginPresenter
-
-    @Before()
-    fun attach(){
-
-//        MockitoAnnotations.initMocks(this)
-
-    //presenter = LoginPresenterImpl(loginRepository)
-        //presenter.attachView(mLogin, mRegister, activityLogin)
+    @Before
+    fun setup(){
+        MockitoAnnotations.openMocks(this)
+        pre  = LoginPresenterFactory.create(context)
+        pre.attachView(mLogin, mReg, mAL)
     }
-
     @Test
     fun shouldShowErrorMessageWhenUsernameIsEmpty() {
-        //loginRepository = LoginRepository(context)
-        //mRegister.showUsernameError()
-val context : Context = mock()
-        val d = 2+2
-        assertEquals(4, d)
+
+        `when`(pre.isAuth()).thenReturn(false)
+
+        verify(pre).isAuth()
     }
 }

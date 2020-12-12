@@ -11,6 +11,7 @@ import com.boyko.loans.ui.Loans
 import com.boyko.loans.ui.itemfragment.CreateNewLoan
 import com.boyko.loans.ui.itemfragment.CreatedNewLoan
 import com.boyko.loans.ui.itemfragment.LoanItem
+import kotlinx.android.synthetic.main.loans_fragment.*
 
 const val KEY_THEME = "prefs.theme"
 const val THEME_LIGHT = 0
@@ -38,10 +39,6 @@ class ActivityLoans : AppCompatActivity() {
     override fun onBackPressed() {
         when (supportFragmentManager.findFragmentById(R.id.main_loans_container)) {
             is Loans -> finish()
-            is CreatedNewLoan -> {
-                presenter.showFragmentRight(mLoans, supportFragmentManager)
-                presenter.getAllLoans(applicationContext, getString(R.string.no_connection))
-            }
             is CreateNewLoan -> presenter.showFragmentRight(mLoans, supportFragmentManager)
             is LoanItem ->      presenter.showFragmentRight(mLoans, supportFragmentManager)
             else -> super.onBackPressed()

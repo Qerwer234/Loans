@@ -24,6 +24,12 @@ class Loans : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreatedFirst = true
+
+        myAdapter = Adapter(listLoan, object : Adapter.Callback {
+            override fun onItemClicked(item: Loan) {
+                presenter?.showItemLoan(item, fragmentManager!!)
+            }
+        })
     }
 
     override fun onCreateView(
@@ -36,26 +42,21 @@ class Loans : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        recycleViewCreate(listLoan)
+        serAdapter()
 
         if (onCreatedFirst) {
             presenter?.getAllLoans(context!!, getString(R.string.no_connection))
             onCreatedFirst = false
         }
 
-        presenter?.setListLoansToFragment()
+        //presenter?.setListLoansToFragment()
 
         btn_CreateNewLoan.setOnClickListener { presenter?.showCreateNewLoan(fragmentManager!!) }
         fab.setOnClickListener {context?.let { presenter?.getAllLoans(context!!, getString(R.string.no_connection)) }}
     }
 
-    private fun recycleViewCreate(listLoan: List<Loan>) {
+    private fun serAdapter() {
         recyclerview.layoutManager = LinearLayoutManager(context)
-        myAdapter = Adapter(listLoan, object : Adapter.Callback {
-            override fun onItemClicked(item: Loan) {
-                presenter?.showItemLoan(item, fragmentManager!!)
-            }
-        })
         recyclerview.adapter = myAdapter
     }
 
