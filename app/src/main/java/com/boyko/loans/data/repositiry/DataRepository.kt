@@ -10,11 +10,8 @@ class DataRepository ( val dbLoans: LoanDb){
 
     fun insert(listLoanCall: List<Loan>) {
         this.listLoans = listLoanCall
-        dbLoans.loanDao().insert(listLoanCall)
-
-    }
-    fun clear() {
-        dbLoans.loanDao().clear()
+        dbLoans.loanDao().apply {  clear()
+            insert(listLoanCall)}
 
     }
 }
