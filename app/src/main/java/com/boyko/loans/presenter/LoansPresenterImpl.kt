@@ -252,7 +252,7 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         mLoans?.myAdapter?.update(getListLoansFromData()!!.filter { loan -> loan.state == Adapter.APPROVED})
     }
     override fun sort(){
-        mLoans?.myAdapter?.update(getListLoansFromData()!!.sortedBy { loan ->  loan.state()})
+        mLoans?.myAdapter?.update(getListLoansFromData()!!.sortedBy { loan ->  loan.state})
     }
     override fun sortRejected(){
         mLoans?.myAdapter?.update(getListLoansFromData()!!.filter { loan -> loan.state == Adapter.REJECTED})
