@@ -64,7 +64,7 @@ class CreateNewLoan : Fragment() {
         tv_new_first_name.error = getString(R.string.invalid_name)
     }
     fun showFamalyError() {
-        tv_new_last_name.error = getString(R.string.invalid_name)
+        tv_new_last_name.error = getString(R.string.invalid_lastName)
     }
     fun showPhoneError() {
         tv_new_phone.error = getString(R.string.invalid_phone)

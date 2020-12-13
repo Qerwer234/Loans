@@ -8,9 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.boyko.loans.R
 import com.boyko.loans.data.models.Loan
 
-private const val APPROVED = "APPROVED"
-private const val REJECTED = "REJECTED"
-private const val REGISTERED = "REGISTERED"
 private const val APP = "ОДОБРЕНО"
 private const val REJ = "ОТКЛОНЕНА"
 private const val REG = "ЗАРЕГИСТРИРОВАНО"
@@ -66,5 +63,10 @@ class Adapter(var items: List<Loan>, val callback: Callback) : RecyclerView.Adap
 
         items = listLoan
         notifyDataSetChanged()
+    }
+    companion object{
+        const val APPROVED = "APPROVED"
+        const val REJECTED = "REJECTED"
+        const val REGISTERED = "REGISTERED"
     }
 }

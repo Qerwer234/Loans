@@ -49,12 +49,25 @@
                 android:text="@string/item_loan_period"
                 style="@style/smallText" />
             <TextView
-                android:layout_width="50dp"
+                android:id="@+id/sort"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="20"
+                android:layout_weight="3"
                 android:gravity="center"
                 android:text="@string/item_loan_status"
                 style="@style/smallText" />
+            <TextView
+                android:id="@+id/sort_approved"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_margin="@dimen/app_margin"
+                android:background="@color/item_loan_bg_aproved"/>
+            <TextView
+                android:id="@+id/sort_rejected"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_margin="@dimen/app_margin"
+                android:background="@color/item_loan_bg_rejected"/>
 
 
         </LinearLayout>

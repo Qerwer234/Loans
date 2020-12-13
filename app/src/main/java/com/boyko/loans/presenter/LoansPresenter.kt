@@ -36,4 +36,8 @@ interface LoansPresenter {
     fun onItemRequestUpdated( name: String, famaly: String, telephone: String, amount: String )
 
     fun logOut()
+
+    fun sortAproved()
+
+    fun sortRejected()
 }

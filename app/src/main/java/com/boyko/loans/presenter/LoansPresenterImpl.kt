@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.boyko.loans.ActivityLoans
 import com.boyko.loans.R
+import com.boyko.loans.adapter.Adapter
 import com.boyko.loans.api.Client
 import com.boyko.loans.data.models.Loan
 import com.boyko.loans.data.models.LoanConditions
@@ -246,5 +247,11 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         if ( amount.length > 1){
             if (amount.toInt() > 999) return true}
         return false
+    }
+    override fun sortAproved(){
+        mLoans?.myAdapter?.update(getListLoansFromData()!!.filter { loan -> loan.state == Adapter.APPROVED})
+    }
+    override fun sortRejected(){
+        mLoans?.myAdapter?.update(getListLoansFromData()!!.filter { loan -> loan.state == Adapter.REJECTED})
     }
 }
