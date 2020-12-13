@@ -51,6 +51,7 @@ class Loans : Fragment() {
 
         sort_approved.setOnClickListener { presenter?.sortAproved()}
         sort_rejected.setOnClickListener { presenter?.sortRejected()}
+        sort.setOnClickListener { presenter?.sort()}
 
         btn_CreateNewLoan.setOnClickListener { presenter?.showCreateNewLoan(fragmentManager!!) }
         fab.setOnClickListener {context?.let { presenter?.getAllLoans(context!!, getString(R.string.no_connection)) }}

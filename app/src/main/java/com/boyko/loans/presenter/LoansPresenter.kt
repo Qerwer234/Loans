@@ -40,4 +40,6 @@ interface LoansPresenter {
     fun sortAproved()
 
     fun sortRejected()
+
+    fun sort()
 }
