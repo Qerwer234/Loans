@@ -4,7 +4,10 @@ package com.boyko.loans.ui.itemfragment
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.*
+import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.boyko.loans.R
@@ -12,7 +15,6 @@ import com.boyko.loans.data.models.LoanConditions
 import com.boyko.loans.data.models.LoanRequest
 import com.boyko.loans.presenter.LoansPresenter
 import kotlinx.android.synthetic.main.fragment_create_new_loan.*
-import kotlinx.android.synthetic.main.registr_fragment.*
 
 class CreateNewLoan : Fragment() {
 
@@ -34,11 +36,11 @@ class CreateNewLoan : Fragment() {
             presenter?.loanConditionsRequest(context!!, getString(R.string.no_connection))
 
             btn_send.setOnClickListener { presenter?.loanRequest(
-                context!!,
-                createLoanRequestObject(),
-                presenter!!,
-                fragmentManager!!,
-                getString(R.string.no_connection))
+                    context!!,
+                    createLoanRequestObject(),
+                    presenter!!,
+                    fragmentManager!!,
+                    getString(R.string.no_connection))
             }
         }
         btn_send.isEnabled = false
@@ -78,35 +80,56 @@ class CreateNewLoan : Fragment() {
     private fun initViews() {
         tv_new_first_name.afterTextChanged {
             presenter?.onItemRequestUpdated(
-                tv_new_first_name.text.toString(),
-                tv_new_last_name.text.toString(),
-                tv_new_phone.text.toString(),
-                tv_new_amount.text.toString()
+                    tv_new_first_name.text.toString(),
+                    tv_new_last_name.text.toString(),
+                    tv_new_phone.text.toString(),
+                    tv_new_amount.text.toString()
             )
         }
+        tv_new_first_name.setOnKeyListener { v, keyCode, event ->
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+                tv_new_last_name.requestFocus()
+            true
+        }
+
         tv_new_last_name.afterTextChanged {
             presenter?.onItemRequestUpdated(
-                tv_new_first_name.text.toString(),
-                tv_new_last_name.text.toString(),
-                tv_new_phone.text.toString(),
-                tv_new_amount.text.toString()
+                    tv_new_first_name.text.toString(),
+                    tv_new_last_name.text.toString(),
+                    tv_new_phone.text.toString(),
+                    tv_new_amount.text.toString()
             )
+        }
+        tv_new_last_name.setOnKeyListener { v, keyCode, event ->
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+                tv_new_phone.requestFocus()
+            true
         }
         tv_new_phone.afterTextChanged {
             presenter?.onItemRequestUpdated(
-                tv_new_first_name.text.toString(),
-                tv_new_last_name.text.toString(),
-                tv_new_phone.text.toString(),
-                tv_new_amount.text.toString()
+                    tv_new_first_name.text.toString(),
+                    tv_new_last_name.text.toString(),
+                    tv_new_phone.text.toString(),
+                    tv_new_amount.text.toString()
             )
+        }
+        tv_new_phone.setOnKeyListener { v, keyCode, event ->
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+                tv_new_amount.requestFocus()
+            true
         }
         tv_new_amount.afterTextChanged {
             presenter?.onItemRequestUpdated(
-                tv_new_first_name.text.toString(),
-                tv_new_last_name.text.toString(),
-                tv_new_phone.text.toString(),
-                tv_new_amount.text.toString()
+                    tv_new_first_name.text.toString(),
+                    tv_new_last_name.text.toString(),
+                    tv_new_phone.text.toString(),
+                    tv_new_amount.text.toString()
             )
+        }
+        tv_new_amount.setOnKeyListener { v, keyCode, event ->
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+                btn_send.requestFocus()
+            true
         }
     }
     companion object {
