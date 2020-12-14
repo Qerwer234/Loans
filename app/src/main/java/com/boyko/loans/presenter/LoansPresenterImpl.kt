@@ -1,6 +1,7 @@
 package com.boyko.loans.presenter
 
 import android.content.Context
+import android.content.DialogInterface
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -29,7 +30,6 @@ import kotlinx.android.synthetic.main.loans_fragment.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.concurrent.TimeUnit
-import java.util.regex.Pattern
 import java.util.regex.Pattern.compile
 
 
@@ -247,6 +247,24 @@ class LoansPresenterImpl(private val loginRepository: LoginRepository, private v
         if ( amount.length > 1){
             if (amount.toInt() > 999) return true}
         return false
+    }
+
+    override fun openQuitDialog(context: Context) {
+        val quitDialog: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(
+                context)
+        quitDialog.setTitle(context.getString(R.string.dialog_name_exit))
+        quitDialog.setPositiveButton(context.getString(R.string.yes), object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                logOut()
+                (context as ActivityLoans).finish()
+            }
+        })
+        quitDialog.setNegativeButton(context.getString(R.string.no), object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+
+            }
+        })
+        quitDialog.show()
     }
     override fun sortAproved(){
         mLoans?.myAdapter?.update(getListLoansFromData()!!.filter { loan -> loan.state == Adapter.APPROVED})

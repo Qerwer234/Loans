@@ -37,6 +37,8 @@ interface LoansPresenter {
 
     fun logOut()
 
+    fun openQuitDialog(context: Context)
+
     fun sortAproved()
 
     fun sortRejected()

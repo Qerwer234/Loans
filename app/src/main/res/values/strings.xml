@@ -76,4 +76,7 @@
     <string name="invalid_amout">Не менее 1000 руб.</string>
     <string name="uploaded_history">Загружены офлай данные</string>
     <string name="invalid_lastName">Не менее 2 символов</string>
+    <string name="dialog_name_exit">Выход: Вы уверены?</string>
+    <string name="yes">Да!</string>
+    <string name="no">Нет</string>
 </resources>

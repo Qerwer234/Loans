@@ -1,21 +1,20 @@
 package com.boyko.loans
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.boyko.loans.di.LoansPresenterFactory
 import com.boyko.loans.ui.Loans
 import com.boyko.loans.ui.itemfragment.CreateNewLoan
-import com.boyko.loans.ui.itemfragment.CreatedNewLoan
 import com.boyko.loans.ui.itemfragment.LoanItem
-import kotlinx.android.synthetic.main.loans_fragment.*
 
 const val KEY_THEME = "prefs.theme"
 const val THEME_LIGHT = 0
 const val THEME_DARK = 1
+const val THEME_UNDEFINED = -1
 
 
 class ActivityLoans : AppCompatActivity() {
@@ -48,8 +47,7 @@ class ActivityLoans : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_logout -> {
-                presenter.run { logOut() }
-                finish()
+                presenter.openQuitDialog(this)
             }
             R.id.action_darck -> setTheme(AppCompatDelegate.MODE_NIGHT_YES, THEME_DARK)
             R.id.action_light -> setTheme(AppCompatDelegate.MODE_NIGHT_NO, THEME_LIGHT)
