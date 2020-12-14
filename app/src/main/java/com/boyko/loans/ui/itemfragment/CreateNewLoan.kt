@@ -87,9 +87,11 @@ class CreateNewLoan : Fragment() {
             )
         }
         tv_new_first_name.setOnKeyListener { v, keyCode, event ->
-            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
                 tv_new_last_name.requestFocus()
-            true
+                true
+            } else
+            false
         }
 
         tv_new_last_name.afterTextChanged {
@@ -101,9 +103,11 @@ class CreateNewLoan : Fragment() {
             )
         }
         tv_new_last_name.setOnKeyListener { v, keyCode, event ->
-            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
                 tv_new_phone.requestFocus()
             true
+        } else
+        false
         }
         tv_new_phone.afterTextChanged {
             presenter?.onItemRequestUpdated(
@@ -114,9 +118,11 @@ class CreateNewLoan : Fragment() {
             )
         }
         tv_new_phone.setOnKeyListener { v, keyCode, event ->
-            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
                 tv_new_amount.requestFocus()
             true
+        } else
+        false
         }
         tv_new_amount.afterTextChanged {
             presenter?.onItemRequestUpdated(
@@ -127,9 +133,11 @@ class CreateNewLoan : Fragment() {
             )
         }
         tv_new_amount.setOnKeyListener { v, keyCode, event ->
-            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)
+            if  (keyCode ==  KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
                 btn_send.requestFocus()
             true
+        } else
+        false
         }
     }
     companion object {
